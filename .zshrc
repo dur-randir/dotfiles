@@ -17,7 +17,11 @@ alias wcl='wc -l'
 alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
 alias gti='git' # too common typo
 alias vi='vim'
+
 alias lxc-ls='lxc-ls -f'
+alias lxs-attach='lxs-attach -n'
+alias lxs-start='lxs-start -n'
+alias lxs-stop='lxs-stop -n'
 
 # do not stop terminal on ctrl+s
 stty -ixon
