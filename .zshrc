@@ -57,7 +57,7 @@ ZSH_DISABLE_COMPFIX=true
 DISABLE_AUTO_UPDATE="true"
 
 # zsh:faster work with repositories
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+#DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 if [ ! -d "$ZSH" ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh "$ZSH"
