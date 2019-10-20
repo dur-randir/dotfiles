@@ -2,7 +2,6 @@
 export TERM="xterm-256color"
 export EDITOR=joe
 export LESS='-R'
-#export LSCOLORS='gxfxdxdxCxbDfDCbCgGhGx'
 export LANG='en_US.UTF-8'
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
