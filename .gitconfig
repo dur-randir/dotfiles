@@ -14,6 +14,8 @@
 [pager]
 	diff = false
 	show = false
+    branch = false
+    tag = false
 [checkout]
 	defaultRemote = origin
 [merge]
