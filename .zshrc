@@ -68,7 +68,7 @@ if [ ! -d "$ZSH/plugins/zsh-completions" ]; then
 fi
 
 # oh-my-zsh
-plugins=(git debian svn tmux safe-paste nmap zsh-completions)
+plugins=(safe-paste zsh-completions)
 source $ZSH/oh-my-zsh.sh
 
 # zsh:history
