@@ -49,9 +49,7 @@ git_status_prompt() {
   local git_branch="$(git_current_branch)"
   [[ -z "$git_branch" ]] && return
 
-  local git_status="$(git_status)"
-
-  echo -n "$ZSH_THEME_GIT_PROMPT_PREFIX%F{yellow}%B${git_branch}%b%f%F{red}%B${git_status}%b%f$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  echo -n "$ZSH_THEME_GIT_PROMPT_PREFIX%F{yellow}%B${git_branch}%b%f%F{red}%B$(git_status)%b%f$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
 PROMPT='%(#.%F{red}.%F{white})%B%n%b%f@%F{241}%m%f:%F{blue}%B%c/%b%f $(git_status_prompt)%1(j.%F{white}[%j]%f .)%(?.%F{66}.%F{9})%B%(#.#.$)%b%f '
