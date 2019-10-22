@@ -49,9 +49,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 export ZSH_THEME="randir"
 
-# do not complain under sudo
-ZSH_DISABLE_COMPFIX=true
-
 # zsh:no oh-my-zsh. autoupdates
 DISABLE_AUTO_UPDATE="true"
 
@@ -65,6 +62,11 @@ fi
 if [ ! -d "$ZSH/plugins/zsh-completions" ]; then
     git clone https://github.com/zsh-users/zsh-completions "$ZSH/plugins/zsh-completions"
 fi
+
+# zsh:autocomplete
+# do not complain under sudo
+ZSH_DISABLE_COMPFIX=true
+autoload -U compinit && compinit -Cu
 
 # oh-my-zsh
 plugins=(safe-paste zsh-completions)
@@ -90,9 +92,6 @@ setopt nobeep
 
 # zsh:no paste noise
 zle_highlight+=(paste:none)
-
-# zsh:autocomplete
-autoload -U compinit && compinit
 
 # zsh:vi mode
 # bindkey -v # messes up with ctrl-a
