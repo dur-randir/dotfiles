@@ -77,7 +77,7 @@ source $ZSH/oh-my-zsh.sh
 setopt append_history
 unsetopt inc_append_history
 unsetopt share_history
-setopt extended_history
+unsetopt extended_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_find_no_dups
