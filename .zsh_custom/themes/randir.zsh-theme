@@ -52,7 +52,9 @@ git_status_prompt() {
   echo -n "$ZSH_THEME_GIT_PROMPT_PREFIX%F{yellow}%B${git_branch}%b%f%F{red}%B$(git_status)%b%f$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-PROMPT='%(#.%F{red}.%F{white})%B%n%b%f@%F{241}%m%f:%F{blue}%B%c/%b%f $(git_status_prompt)%1(j.%F{white}[%j]%f .)%(?.%F{66}.%F{9})%B%(#.#.$)%b%f '
+[[ ! -z "$container" ]] && ZSH_STATUS_CONTAINER="%F{137}($container)%f"
+
+PROMPT='%(#.%F{red}.%F{white})%B%n%b%f@%F{241}%m%f$ZSH_STATUS_CONTAINER:%F{blue}%B%c/%b%f $(git_status_prompt)%1(j.%F{white}[%j]%f .)%(?.%F{66}.%F{9})%B%(#.#.$)%b%f '
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}%B(%b%f"
