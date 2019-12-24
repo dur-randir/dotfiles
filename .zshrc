@@ -66,12 +66,16 @@ alias wcl='wc -l'
 alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
 alias gti='git' # too common typo
 alias vi='vim'
-alias retor='killall -9 tor.real'
 
+# lxc
 alias lxc-ls='lxc-ls -f'
 alias lxs-attach='lxs-attach -n'
 alias lxs-start='lxs-start -n'
 alias lxs-stop='lxs-stop -n'
+
+# software
+alias retor='killall -9 tor.real'
+alias resocks='sudo launchctl load -w /Library/LaunchAgents/com.shadowsocks.plist'
 
 # zsh:history
 setopt append_history
