@@ -22,3 +22,5 @@
 	conflictStyle = diff3
 [blame]
 	date = short
+[status]
+    relativePaths = true
