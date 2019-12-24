@@ -7,22 +7,6 @@ export CLICOLOR=1
 export CLICOLOR_FORCE=1
 export PATH=/opt/local/bin:/usr/texbin:$PATH
 
-# alias block
-alias ll='ls -al'
-alias lh='ls -alh'
-alias g='egrep -d skip -In --'
-alias gv='egrep -d skip -Iv --'
-alias wcl='wc -l'
-alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
-alias gti='git' # too common typo
-alias vi='vim'
-alias retor='killall -9 tor.real'
-
-alias lxc-ls='lxc-ls -f'
-alias lxs-attach='lxs-attach -n'
-alias lxs-start='lxs-start -n'
-alias lxs-stop='lxs-stop -n'
-
 # do not stop terminal on ctrl+s
 stty -ixon
 
@@ -72,6 +56,22 @@ autoload -U compinit && compinit -Cu
 # oh-my-zsh
 plugins=(safe-paste zsh-completions)
 source $ZSH/oh-my-zsh.sh
+
+# alias block
+alias ll='ls -al'
+alias lh='ls -alh'
+alias g='egrep -d skip -In --'
+alias gv='egrep -d skip -Iv --'
+alias wcl='wc -l'
+alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
+alias gti='git' # too common typo
+alias vi='vim'
+alias retor='killall -9 tor.real'
+
+alias lxc-ls='lxc-ls -f'
+alias lxs-attach='lxs-attach -n'
+alias lxs-start='lxs-start -n'
+alias lxs-stop='lxs-stop -n'
 
 # zsh:history
 setopt append_history
