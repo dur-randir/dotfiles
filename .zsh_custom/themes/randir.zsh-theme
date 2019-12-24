@@ -18,8 +18,14 @@ git_status() {
     git_status="$ZSH_GIT_STATUS_STASHED$git_status"
   fi
 
+  local NEED_GIT_STATUS_MODIFIED
   pcre_compile -m '^[ MARC]M '
-  pcre_match $INDEX && git_status="$ZSH_GIT_STATUS_MODIFIED$git_status"
+  pcre_match $INDEX && NEED_GIT_STATUS_MODIFIED=1
+  if [[ -z "$NEED_GIT_STATUS_MODIFIED" ]]; then
+    pcre_compile -m '^[MARC]  '
+    pcre_match $INDEX && NEED_GIT_STATUS_MODIFIED=1
+  fi
+  [[ ! -z $NEED_GIT_STATUS_MODIFIED ]] && git_status="$ZSH_GIT_STATUS_MODIFIED$git_status"
 
   local -a ARR
   local c_ahead c_behind git_up_status
