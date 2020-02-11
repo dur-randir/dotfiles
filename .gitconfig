@@ -1,26 +1,26 @@
 [user]
-	name = Sergey Aleynikov
-	email = sergey.aleynikov@gmail.com
+    name = Sergey Aleynikov
+    email = sergey.aleynikov@gmail.com
 [push]
-	default = current
-	recurseSubmodules = check
+    default = current
+    recurseSubmodules = check
 [alias]
-	co = checkout
-	ci = commit
-	st = status
+    co = checkout
+    ci = commit
+    st = status
     graft = cherry-pick -x
-	lg = log  --graph --pretty=format:'%C(yellow)%h %C(auto) %ad %C(cyan)%<(12,trunc)%aN %C(auto)-%C(yellow)%d%Creset %s' --color --date=format:'%d %b %H:%m'
-	rh = reset --hard HEAD
+    lg = log  --graph --pretty=format:'%C(yellow)%h %C(auto) %ad %C(cyan)%<(12,trunc)%aN %C(auto)-%C(yellow)%d%Creset %s' --color --date=format:'%d %b %H:%m'
+    rh = reset --hard HEAD
 [pager]
-	diff = false
-	show = false
+    diff = false
+    show = false
     branch = false
     tag = false
 [checkout]
-	defaultRemote = origin
+    defaultRemote = origin
 [merge]
-	conflictStyle = diff3
+    conflictStyle = diff3
 [blame]
-	date = short
+    date = short
 [status]
     relativePaths = true
