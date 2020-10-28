@@ -4,23 +4,35 @@
 [push]
     default = current
     recurseSubmodules = check
+[pull]
+    ff = only
 [alias]
-    co = checkout
+    co = checkout --recurse-submodules
     ci = commit
     st = status
     graft = cherry-pick -x
     lg = log  --graph --pretty=format:'%C(yellow)%h %C(auto) %ad %C(cyan)%<(12,trunc)%aN %C(auto)-%C(yellow)%d%Creset %s' --color --date=format:'%d %b %H:%m'
     rh = reset --hard HEAD
+[core]
+    pager = less -FXR
 [pager]
-    diff = false
-    show = false
+    #diff = false
+    #show = false
     branch = false
     tag = false
 [checkout]
     defaultRemote = origin
 [merge]
     conflictStyle = diff3
+    ff = false
 [blame]
     date = short
 [status]
     relativePaths = true
+[gc]
+    auto = 0
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

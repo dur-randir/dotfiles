@@ -76,6 +76,7 @@ alias lxs-stop='lxs-stop -n'
 # software
 alias retor='killall -9 tor.real'
 alias resocks='sudo launchctl load -w /Library/LaunchAgents/com.shadowsocks.plist'
+alias chrome='open /Applications/Google\ Chrome.app --args --disable-features="WebAssembly,AsmJsToWebAssembly,WebAssemblyStreaming" --js-flags="--noexpose-wasm" --reset-variation-state'
 
 # zsh:history
 setopt append_history
@@ -103,3 +104,10 @@ zle_highlight+=(paste:none)
 
 # zsh:search shortcut
 bindkey "^R" history-incremental-pattern-search-backward
+
+function lxc-foreach () {
+    local FARGS=$@
+    for container in `lxc-ls --running | grep -avF IPV4|awk '{print $1}'`;
+        do lxc-attach $container -- /bin/bash -c "$FARGS";
+    done
+}
