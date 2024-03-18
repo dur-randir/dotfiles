@@ -17,7 +17,7 @@ stty -ixon
 if [[ -n "$SSH_TTY" && -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" && ! -e ~/.ssh/ssh_auth_sock ]]; then
     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 
 # support perl via perlbrew
 export PERLBREW_ROOT="$HOME/perlbrew"
