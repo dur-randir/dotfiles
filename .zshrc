@@ -7,6 +7,9 @@ export CLICOLOR=1
 export CLICOLOR_FORCE=1
 export PATH=/opt/local/bin:/usr/texbin:$PATH
 
+FZF_CTRL_R_OPTS='--sort'
+eval "$(fzf --zsh)"
+
 # do not stop terminal on ctrl+s
 stty -ixon
 
@@ -99,11 +102,9 @@ setopt nobeep
 # zsh:no paste noise
 zle_highlight+=(paste:none)
 
-# zsh:vi mode
-# bindkey -v # messes up with ctrl-a
-
 # zsh:search shortcut
-bindkey "^R" history-incremental-pattern-search-backward
+#bindkey "^R" history-incremental-pattern-search-backward
+bindkey '^r' fzf-history-widget
 
 function lxc-foreach () {
     local FARGS=$@
