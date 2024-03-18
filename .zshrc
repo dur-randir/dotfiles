@@ -5,7 +5,7 @@ export LESS='-R'
 export LANG='en_US.UTF-8'
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
-export PATH=/opt/local/bin:/usr/texbin:$PATH
+export PATH=/opt/local/bin:/opt/local/libexec/gnubin:$PATH
 
 FZF_CTRL_R_OPTS='--sort'
 eval "$(fzf --zsh)"
