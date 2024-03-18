@@ -63,8 +63,6 @@ source $ZSH/oh-my-zsh.sh
 # alias block
 alias ll='ls -al'
 alias lh='ls -alh'
-alias g='egrep -d skip -In --'
-alias gv='egrep -d skip -Iv --'
 alias wcl='wc -l'
 alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
 alias gti='git' # too common typo
