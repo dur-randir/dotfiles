@@ -3,6 +3,7 @@
     email = sergey.aleynikov@gmail.com
 [push]
     default = current
+    autoSetupRemote = true
     recurseSubmodules = check
 [pull]
     ff = only
@@ -13,22 +14,28 @@
     graft = cherry-pick -x
     lg = log  --graph --pretty=format:'%C(yellow)%h %C(auto) %ad %C(cyan)%<(12,trunc)%aN %C(auto)-%C(yellow)%d%Creset %s' --color --date=format:'%d %b %H:%M'
     rh = reset --hard HEAD
+    rhh = reset --hard HEAD^
+    branches = "for-each-ref --sort=-committerdate refs/heads --format='%(authordate:short) %(color:yellow)%(objectname:short) %(color:green)%(refname:short)%(color:reset) (%(color:cyan)%(committerdate:relative)%(color:reset)) %(authorname)'"
+    branches-remote = "for-each-ref --sort=-committerdate refs/heads refs/remotes --format='%(authordate:short) %(color:yellow)%(objectname:short) %(color:green)%(refname:short)%(color:reset) (%(color:cyan)%(committerdate:relative)%(color:reset)) %(authorname)'"
 [core]
     pager = less -FXR
 [pager]
-    #diff = false
-    #show = false
     branch = false
     tag = false
 [checkout]
     defaultRemote = origin
+[diff]
+    algorithm = histogram
+    colorMoved = default
 [merge]
-    conflictStyle = diff3
+    conflictStyle = zdiff3
     ff = false
 [blame]
     date = short
 [status]
     relativePaths = true
+[advice]
+    detachedHead = false
 [gc]
     auto = 0
 [init]
