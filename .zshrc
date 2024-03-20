@@ -1,6 +1,7 @@
 # global env settings
 export TERM="xterm-256color"
 export EDITOR=joe
+export DELTA_PAGER='less -FXR'
 export LESS='-R'
 export LANG='en_US.UTF-8'
 export CLICOLOR=1
