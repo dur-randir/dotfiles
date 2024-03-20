@@ -18,7 +18,10 @@
     branches = "for-each-ref --sort=-committerdate refs/heads --format='%(authordate:short) %(color:yellow)%(objectname:short) %(color:green)%(refname:short)%(color:reset) (%(color:cyan)%(committerdate:relative)%(color:reset)) %(authorname)'"
     branches-remote = "for-each-ref --sort=-committerdate refs/heads refs/remotes --format='%(authordate:short) %(color:yellow)%(objectname:short) %(color:green)%(refname:short)%(color:reset) (%(color:cyan)%(committerdate:relative)%(color:reset)) %(authorname)'"
 [core]
-    pager = less -FXR
+    #pager = less -FXR
+    pager = delta --color-only
+[delta]
+    features = local
 [pager]
     branch = false
     tag = false
@@ -45,3 +48,23 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[delta "local"]
+    syntax-theme = base16
+    plus-style = green black
+    plus-emph-style = black green
+    minus-style = red black
+    minus-emph-style = black red
+    zero-style = dim syntax
+    whitespace-error-style = black bold
+    line-numbers = false
+    side-by-side = false
+    blame-code-style = syntax
+    blame-format = "{commit:<10} ({author:<18} {timestamp:<11}"
+    blame-palette = "#101010 #200020 #002800 #000028 #202000 #280000 #002020 #002800 #202020"
+    blame-timestamp-output-format = "%Y-%m-%d"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-ours-diff-header-decoration-style = "#5E81AC" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#5E81AC" box
