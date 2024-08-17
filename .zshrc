@@ -6,8 +6,9 @@ export LANG='en_US.UTF-8'
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 export PATH=/opt/local/bin:/opt/local/libexec/gnubin:$PATH
+#export PATH=/opt/local/bin:$PATH
 
-FZF_CTRL_R_OPTS='--sort'
+export FZF_CTRL_R_OPTS='--sort --ignore-case --no-mouse --border=rounded --scheme=history'
 eval "$(fzf --zsh)"
 
 # do not stop terminal on ctrl+s
@@ -42,6 +43,17 @@ else
     export TERM="xterm-256color"
 fi
 
+# no one else knows :(
+alias su='TERM=xterm-256color su'
+alias sudo='TERM=xterm-256color sudo'
+alias ssh='TERM=xterm-256color ssh'
+
+# lxc
+alias lxc-ls='lxc-ls -f'
+alias lxs-attach='lxs-attach -n'
+alias lxs-start='lxs-start -n'
+alias lxs-stop='lxs-stop -n'
+
 # jaischeema afowler
 
 # zsh:customize oh-my-zsh
@@ -49,11 +61,13 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.zsh_custom"
 export ZSH_THEME="randir"
 
-# zsh:no oh-my-zsh. autoupdates
+# zsh:no oh-my-zsh autoupdates
 DISABLE_AUTO_UPDATE="true"
 
 # zsh:faster work with repositories
 #DISABLE_UNTRACKED_FILES_DIRTY="true"
+# zsh:skip git prompt completely
+#DISABLE_GIT_PROMPT="true"
 
 if [ ! -d "$ZSH" ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh "$ZSH"
@@ -71,25 +85,6 @@ autoload -U compinit && compinit -Cu
 # oh-my-zsh
 plugins=(safe-paste zsh-completions)
 source $ZSH/oh-my-zsh.sh
-
-# alias block
-alias ll='ls -al'
-alias lh='ls -alh'
-alias wcl='wc -l'
-alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
-alias gti='git' # too common typo
-alias vi='vim'
-
-# lxc
-alias lxc-ls='lxc-ls -f'
-alias lxs-attach='lxs-attach -n'
-alias lxs-start='lxs-start -n'
-alias lxs-stop='lxs-stop -n'
-
-# software
-alias retor='killall -9 tor.real'
-alias resocks='sudo launchctl load -w /Library/LaunchAgents/com.shadowsocks.plist'
-alias chrome='open /Applications/Google\ Chrome.app --args --disable-features="WebAssembly,AsmJsToWebAssembly,WebAssemblyStreaming" --js-flags="--noexpose-wasm" --reset-variation-state'
 
 # zsh:history
 setopt append_history
@@ -115,6 +110,16 @@ zle_highlight+=(paste:none)
 # zsh:search shortcut
 #bindkey "^R" history-incremental-pattern-search-backward
 bindkey '^r' fzf-history-widget
+
+# alias block
+# has to come after oh-my-zsh for the sake of 'll'
+alias ll='eza -al'
+alias lh='eza -alh'
+alias wcl='wc -l'
+alias perl-bisect-make='git clean -dxf && ./Configure -de -Dusedevel && make -j5'
+alias gti='git' # too common typo
+alias vi='vim'
+alias g='grep'
 
 function lxc-foreach () {
     local FARGS=$@
