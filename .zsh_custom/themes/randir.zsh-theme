@@ -50,6 +50,7 @@ git_status() {
 }
 
 git_status_prompt() {
+  [[ -z "$DISABLE_GIT_PROMPT" ]] || return
   [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]] || return
 
   local git_branch="$(git_current_branch)"
