@@ -93,18 +93,21 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh:history
 setopt append_history
-unsetopt inc_append_history
 unsetopt share_history
 unsetopt extended_history
+unsetopt hist_expire_dups_first
+unsetopt hist_verify
+setopt inc_append_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_find_no_dups
-setopt hist_fcntl_lock
-setopt hist_verify
+unsetopt hist_fcntl_lock
 
 export HISTSIZE=2000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="$HOME/.zsh_history"
+
+setopt no_auto_cd
 
 # zsh:silence
 setopt nobeep
