@@ -1,5 +1,4 @@
 # global env settings
-export TERM="xterm-256color"
 export EDITOR=joe
 export DELTA_PAGER='less -FXR'
 export LESS='-R'
@@ -30,6 +29,18 @@ fi
 # support node.js via nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+if [ ! -d "$HOME/.terminfo" ]; then
+    mkdir "$HOME/.terminfo"
+    tic -x -o "$HOME/.terminfo" "$HOME/xterm-24bit.terminfo"
+fi
+
+if [ -z "$TMUX" ]; then
+    export TERM="xterm-24bit"
+    export TERM="xterm-256color"
+else
+    export TERM="xterm-256color"
+fi
 
 # jaischeema afowler
 
