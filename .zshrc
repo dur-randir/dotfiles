@@ -20,6 +20,11 @@ if [[ -n "$SSH_TTY" && -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" && ! -e ~/.s
 fi
 export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
 
+# locally, if no agent running, spawn one
+if ! socat -u OPEN:/dev/null UNIX-CONNECT:"$SSH_AUTH_SOCK" 2>/dev/null; then
+    flock -nx "/tmp/ssh_auth_sock.`id -u`.lock" bash -c "rm -f $SSH_AUTH_SOCK; ssh-agent -a $SSH_AUTH_SOCK >/dev/null"
+fi
+
 # support perl via perlbrew
 export PERLBREW_ROOT="$HOME/perlbrew"
 if [ -d "$PERLBREW_ROOT" ]; then
