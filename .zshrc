@@ -69,6 +69,9 @@ export ZSH_THEME="randir"
 # zsh:no oh-my-zsh autoupdates
 DISABLE_AUTO_UPDATE="true"
 
+# zsh:no escapes for uri
+DISABLE_MAGIC_FUNCTIONS=true
+
 # zsh:faster work with repositories
 #DISABLE_UNTRACKED_FILES_DIRTY="true"
 # zsh:skip git prompt completely
